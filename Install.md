@@ -1,0 +1,4 @@
+- php artisan make:migration create_items_table --create=levels
+- php artisan make:migration create_items_table --create=scores
+- php artisan make:migration create_items_table --create=words
+- php artisan migrate

@@ -1,0 +1,11 @@
+* text=auto
+
+backend/*.blade.php diff=html
+backend/*.css diff=css
+backend/*.html diff=html
+backend/*.md diff=markdown
+backend/*.php diff=php
+
+/.github export-ignore
+CHANGELOG.md export-ignore
+.styleci.yml export-ignore
