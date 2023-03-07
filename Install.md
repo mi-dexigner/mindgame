@@ -1,4 +1,5 @@
-- php artisan make:migration create_items_table --create=levels
-- php artisan make:migration create_items_table --create=scores
-- php artisan make:migration create_items_table --create=words
+- php artisan make:migration create_levels_table --create=levels
+- php artisan make:migration create_scores_table --create=scores
+- php artisan make:migration create_words_table --create=words
 - php artisan migrate
+- composer create-project --prefer-dist laravel/laravel backend "7.3"
