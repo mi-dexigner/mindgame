@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\auth\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+ Route::get('/', function () { return view('index');});
+// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [AuthController::class, 'login']);
+// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+// Route::post('/', [AuthController::class, 'login']);
+// Route::post('/', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        // Only authenticated users with admin privileges may enter...
+    });
+
+    Route::get('/admin/users', function () {
+        // Only authenticated users with admin privileges may enter...
+    });
+    Route::get('/admin/profile', function () {
+        // Only authenticated users may enter...
+    });
+
+    Route::get('/admin/settings', function () {
+        // Only authenticated users may enter...
+    });
 });

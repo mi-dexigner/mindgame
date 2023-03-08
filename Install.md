@@ -3,3 +3,4 @@
 - php artisan make:migration create_words_table --create=words
 - php artisan migrate
 - composer create-project --prefer-dist laravel/laravel backend "7.3"
+- php artisan make:controller auth/RegisterContoller
