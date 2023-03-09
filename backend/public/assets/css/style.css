@@ -399,9 +399,15 @@ tr:hover .row-actions {
     position: relative;
     left: -9999em;
     word-wrap: break-word;
+    display: flex;
 }
-    word-wrap: break-word;
-.status.purple{
+
+.status{
+    padding: 10px 15px;
+    margin-bottom: 10px;
+}
+
+    .status.purple{
     background-color: rebeccapurple;
 }
 
@@ -411,6 +417,20 @@ tr:hover .row-actions {
 
 .status.orange{
     background-color: orangered;
+}
+.status.success{
+    background-color: #74d974;
+    color: green;
+}
+.status.danger{
+    background-color:rgb(238, 170, 170);
+    color: red;
+}
+.delete button{
+    background: none;
+    color: var( --main-color);
+    border: none;
+    cursor: pointer;
 }
 .delete a {
     color: red;

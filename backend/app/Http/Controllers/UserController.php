@@ -11,6 +11,11 @@ class UserController extends Controller
     public function index()
 {
     $users = User::all();
+    foreach ($users as $user) {
+        $email = $user->email;
+        $hash = md5(strtolower(trim($email)));
+        $user->gravatarUrl = "https://www.gravatar.com/avatar/{$hash}?s=200&d=mp";
+    }
 
     return view('users.index', compact('users'));
 }
@@ -24,17 +29,29 @@ public function create()
     {
         $request->validate([
             'name' => 'required',
+            'username' => 'required|unique:users',
             'email' => 'required|email|unique:users,email',
-            'password' => 'required|min:8',
+            'password' => 'required|min:8|confirmed',
+            'user_role' => 'required',
+        ],[
+            'name.required' => 'The name field is required.',
+            'username.required' => 'The Username field is required.',
+            'email.required' => 'The email field is required.',
+            'email.unique' => 'The email address is already taken.',
+            'password.required' => 'The password field is required.',
+            'password.confirmed' => 'The password confirmation does not match.',
+            'password.min' => 'The password must be at least 8 characters.',
         ]);
 
         $user = User::create([
             'name' => $request->name,
+            'username' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'user_role' => $request->user_role,
         ]);
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users')
             ->with('success','User created successfully.');
     }
 
@@ -60,7 +77,7 @@ public function create()
             $user->update(['password' => bcrypt($request->password)]);
         }
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users')
             ->with('success','User updated successfully');
     }
 
@@ -68,7 +85,7 @@ public function create()
     {
         $user->delete();
 
-        return redirect()->route('users.index')
+        return redirect()->route('admin.users')
             ->with('success','User deleted successfully');
     }
 

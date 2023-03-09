@@ -17,8 +17,9 @@
     </div>
 @endif
 
-  <form method="POST" action="{{ route('admin.users.store') }}">
+<form action="{{ route('admin.users.update', $user->id) }}" method="POST">
   @csrf
+  @method('PUT')
 <table class="form-table" role="presentation">
 <tbody>
 <tr class="form-field">
@@ -26,7 +27,7 @@
       <label for="name">Name  (required)</label>
     </th>
     <td>
-      <input type="text" placeholder="Full Name" name="name" id="name">
+      <input type="text" placeholder="Full Name" name="name" id="name" value="{{ $user->name }}">
     </td>
   </tr>
   <tr class="form-field">
@@ -34,7 +35,7 @@
       <label for="username">Username (required)</label>
     </th>
     <td>
-     <input type="text" placeholder="Username" name="username" id="username">
+     <input type="text" placeholder="Username" name="username" id="username" value="{{ $user->username }}">
     </td>
   </tr>
   <tr class="form-field">
@@ -42,7 +43,7 @@
       <label for="user_email">Email (required)</label>
     </th>
     <td>
-      <input type="email" placeholder="Email" name="email" id="email">
+      <input type="email" placeholder="Email" name="email" id="email" value="{{ $user->email }}">
       
     </td>
   </tr>

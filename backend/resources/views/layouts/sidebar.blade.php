@@ -21,7 +21,7 @@
                 </ul>
              </li>
              <li class="menu-dropdown">
-                <a href="users.html"><span class="las la-user"></span> <span>Users</span></a>
+                <a href="{{ route('admin.users') }}"><span class="las la-user"></span> <span>Users</span></a>
  <ul class="submenu">
                     <li><a href="{{ route('admin.users') }}"><span>All Users</span></a></li>
                     <li><a href="{{ route('admin.users.create') }}"><span>Add New</span></a></li>
