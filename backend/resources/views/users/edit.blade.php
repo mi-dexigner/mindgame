@@ -3,8 +3,7 @@
 @section('content')
 <div class="card">
 <div class="card-header page-header column">
-    <h3>Add New User</h3>
-    <small>Create a brand new user and add them to this site.</small>
+    <h3>Update User</h3>
 </div>
   <div class="card-body">
   @if ($errors->any())
@@ -67,19 +66,19 @@
   </tr>
     <tr class="form-field">
          <th scope="row">
-      <label for="user_role">Role</label>
+      <label for="user_role">Role </label>
     </th>
     <td>
   <select id="role"  name="user_role" id="role">
-    <option selected="selected" value="user">User</option>
-    <option value="admin">Administrator</option>
+    <option {{ $user->user_role == 'user' ? 'selected' : '' }} value="user">User</option>
+    <option {{ $user->user_role == 'admin' ? 'selected' : '' }} value="admin">Administrator</option>
 </select>
     </td>
  </tr>
 
 </tbody>
 </table>
-<p class="submit"><input type="submit" name="createuser" id="createusersub" class="btn" value="Add New User"></p>
+<p class="submit"><input type="submit" name="createuser" id="createusersub" class="btn" value="Update User"></p>
 </form>
   
  

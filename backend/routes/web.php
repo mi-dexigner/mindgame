@@ -16,41 +16,43 @@ use App\Http\Controllers\UserController;
 */
 
 
- Route::get('/', function () { return view('dashboard.index');});
-// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-// Route::post('/login', [AuthController::class, 'login']);
-// Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 // Route::post('/', [AuthController::class, 'login']);
 // Route::post('/', [AuthController::class, 'logout'])->name('logout');
 
-Route::resource('admin/users', UserController::class)->names([
-    'index' => 'admin.users',
-    'create' => 'admin.users.create',
-    'store' => 'admin.users.store',
-    'show' => 'admin.users.show',
-    'edit' => 'admin.users.edit',
-    'update' => 'admin.users.update',
-    'destroy' => 'admin.users.destroy',
-]);
+
 
 
 // Route::get('admin/users', 'App\Http\Controllers\UserController@index')->name('admin.users.index');
 
-// Route::middleware(['auth', 'admin'])->group(function () {
-//     Route::get('/admin/dashboard', function () {
-//         // Only authenticated users with admin privileges may enter...
-//     });
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::get('admin/dashboard', function () { return view('dashboard.index');})->name('admin.dashboard');
+  /*   Route::get('admin/dashboard', function () {
+        // Only authenticated users with admin privileges may enter...
+    }); */
+    Route::resource('admin/users', UserController::class)->names([
+        'index' => 'admin.users',
+        'create' => 'admin.users.create',
+        'store' => 'admin.users.store',
+        'show' => 'admin.users.show',
+        'edit' => 'admin.users.edit',
+        'update' => 'admin.users.update',
+        'destroy' => 'admin.users.destroy',
+    ]);
 
-//     // Route::get('/admin/users', function () {
-//     //     // Only authenticated users with admin privileges may enter...
-//     // });
-//     Route::get('/admin/profile', function () {
-//         // Only authenticated users may enter...
-//     });
+    // Route::get('/admin/users', function () {
+    //     // Only authenticated users with admin privileges may enter...
+    // });
+    Route::get('/admin/profile', function () {
+        // Only authenticated users may enter...
+    });
 
-//     Route::get('/admin/settings', function () {
-//         // Only authenticated users may enter...
-//     });
-// });
+    Route::get('/admin/settings', function () {
+        // Only authenticated users may enter...
+    });
+});

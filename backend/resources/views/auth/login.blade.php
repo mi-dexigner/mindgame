@@ -11,9 +11,9 @@
 <body class="login">
 <div id="login">
 <h1><a href="/">Powered by {{ env('APP_NAME') }}</a></h1>
-  <!-- <p class="error"> You are now logged out.<br>
-</p> -->
-  <form id="loginform" name="loginform" method="POST" >
+
+  <form id="loginform" name="loginform" method="POST" action="{{ route('login') }}" >
+  @csrf
 <p>
 <label for="user_login">Username or Email Address</label>
 <input type="text" name="log" id="user_login" class="input" value="" size="20" autocapitalize="off" />
