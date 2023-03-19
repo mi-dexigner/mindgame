@@ -104,6 +104,11 @@ select {
     transition: all 300ms linear;
     position: relative;
 }
+.sidebar-menu ul.submenu a button, .sidebar-menu a button{
+border: none;
+background: none;
+color: var(--bs-pagination-disabled-bg);
+}
 .sidebar-menu ul li.menu-dropdown > a:after{
     right: 0;
     border: solid 8px transparent;
@@ -116,8 +121,10 @@ select {
     top: 50%;
     margin-top: -8px;
 }
+
 .menu-dropdown.active > a,
 .sidebar-menu li:hover > a,
+.sidebar-menu li:hover > a button,
 .sidebar-menu li.active > a{
 background-color: #fff;
 color: var(--main-color);
@@ -300,6 +307,11 @@ box-shadow: 0 2px 3px rgb(0 0 0 / 20%);
     font-size: 13px;
     font-weight: 400;
     color: var(--text-grey);
+}
+.ab-sub-wrapper li a button{
+    border: none;
+    background: none;
+    color: #000;
 }
 main{
     margin-top: 60px;

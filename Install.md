@@ -5,4 +5,8 @@
 - composer create-project --prefer-dist laravel/laravel backend "7.3"
 - php artisan make:controller auth/RegisterContoller
 - https://chat.openai.com/chat/f6e4d5fd-65c1-4a35-97f6-f8d2f58ce3a1
-- 
+- php artisan make:model Level
+- php artisan make:controller LevelController --resource
+- php artisan make:model Word
+- php artisan make:controller WordController --resource
+

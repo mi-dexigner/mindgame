@@ -55,7 +55,9 @@
         <td>{{ $user->name }}</td>
         <td>{{ $user->email }}</td>
         <td>{{ $user->user_role }}</td>
-        <!-- <td>  <td>{{ $user->created_at->format('m/d/Y') }}</td></td> -->
+        @if (!is_null($user->created_at))
+        <td>{{ $user->created_at->format('m/d/Y') }}</td>
+        @endif
       </tr>
       @endforeach
     

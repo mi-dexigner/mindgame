@@ -2,7 +2,10 @@
 @section('title', 'Dashboard')
 @section('content')
     <div class="container">
-        <h1>Welcome to your dashboard!</h1>
+        <h1>Welcome to your {{ auth()->user()->name }}!</h1>
+        @if (auth()->check())
+   
+@endif
         <!-- Your dashboard content goes here... -->
     </div>
 @endsection
