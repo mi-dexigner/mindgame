@@ -33,7 +33,7 @@
         android:elevation="0dp"
         android:fontFamily="@font/nunito_extrabold"
         android:text="@string/login_text"
-        android:textSize="25sp"
+        android:textSize="22sp"
         android:textColor="@color/black"
         android:textAllCaps="false"
         android:textFontWeight="700"
@@ -45,10 +45,13 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:textSize="18sp"
         android:text="Register"
         android:background="@drawable/btnbgborderround"
         android:elevation="0dp"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:textFontWeight="700"
         />
 
 
